@@ -1,5 +1,5 @@
 ## Shipments - Demo
-A little Demo for NGroot. To Run this project, make sure to have SQL Server Installed. And  Then run:
+This project is a very basic Demo for NGroot. To Run it, make sure to have SQL Server Installed and  Then run:
 
 ```bash
 dotnet restore
