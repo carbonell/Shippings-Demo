@@ -16,7 +16,7 @@ namespace ShipmentsApi
             };
             var testLoaders = new List<Type>
             { };
-            var masterLoader = new MasterLoader<SeedData>(loaders, testLoaders);
+            var masterLoader = new MasterLoader<InitialData>(loaders, testLoaders);
             await masterLoader.ConfigureInitialData(provider, env.ContentRootPath);
         }
     }

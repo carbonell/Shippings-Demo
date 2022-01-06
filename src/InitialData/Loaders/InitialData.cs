@@ -1,6 +1,6 @@
 namespace ShipmentsApi;
 
-public enum SeedData
+public enum InitialData
 {
     None = 0,
     Packages = 1

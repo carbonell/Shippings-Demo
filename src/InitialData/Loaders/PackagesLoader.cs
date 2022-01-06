@@ -7,11 +7,11 @@ namespace ShipmentsApi
 {
     public interface IPackagesLoader : IModelLoader
     { }
-    public class PackagesLoader : ModelLoader<Package, SeedData>, IPackagesLoader
+    public class PackagesLoader : ModelLoader<Package, InitialData>, IPackagesLoader
     {
-        public PackagesLoader(IOptions<NgrootSettings<SeedData>> settings, ShipmentsContext context) : base(settings)
+        public PackagesLoader(IOptions<NgrootSettings<InitialData>> settings, ShipmentsContext context) : base(settings)
         {
-            Setup(SeedData.Packages)
+            Setup(InitialData.Packages)
                 .FindDuplicatesWith(m => context.Packages.FirstOrDefaultAsync(pck => pck.Name == m.Name))
                 .CreateModelUsing(async (m) =>
                 {
