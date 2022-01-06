@@ -1,6 +1,5 @@
 
 using NGroot;
-using ShipmentsApi;
 
 namespace ShipmentsApi
 {
