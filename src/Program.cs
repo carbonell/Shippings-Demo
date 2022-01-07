@@ -23,6 +23,8 @@ var initialDataSettingsSection = builder.Configuration.GetSection("InitialDataSe
 builder.Services.Configure<NgrootSettings<InitialData>>(initialDataSettingsSection);
 // Configure Loader
 builder.Services.AddScoped<IPackagesLoader, PackagesLoader>();
+// Shipments Loader
+builder.Services.AddScoped<IShipmentsLoader, ShipmentsLoader>();
 
 // Swagger
 builder.Services.AddSwaggerGen();

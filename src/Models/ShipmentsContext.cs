@@ -10,5 +10,6 @@ namespace ShipmentsApi.Models
         }
 
         public DbSet<Package> Packages { get; set; } = null!;
+        public DbSet<Shipment> Shipments { get; set; } = null!;
     }
 }

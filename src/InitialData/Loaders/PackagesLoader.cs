@@ -18,7 +18,13 @@ namespace ShipmentsApi
                     context.Add(m);
                     await context.SaveChangesAsync();
                     return m;
-                });
+                })
+                .With<Shipment>(InitialData.Shipments,
+                    m => m.ShipmentId,
+                    shipment => shipment.Id,
+                    (shipment, m) => m.Shipment?.Id == shipment.Id,
+                    (shipment, m) => m.Shipment = null
+                );
         }
     }
 }

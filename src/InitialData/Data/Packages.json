@@ -1,5 +1,8 @@
 [
     {
-        "Name": "My wonderful package!"
+        "Name": "My wonderful package!",
+        "Shipment": {
+            "Id": "3cb5143a-e543-4eac-9700-1929281ad912"
+        }
     }
 ]
