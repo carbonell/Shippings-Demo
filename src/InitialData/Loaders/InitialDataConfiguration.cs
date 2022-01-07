@@ -11,6 +11,7 @@ namespace ShipmentsApi
         )
         {
             var loaders = new List<Type> {
+                typeof(IShipmentsLoader),
                 typeof(IPackagesLoader),
             };
             var testLoaders = new List<Type>
