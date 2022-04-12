@@ -31,9 +31,9 @@ namespace ShipmentsApi
                 });
         }
 
-        protected override async Task<List<Shipment>> ParseModelAsync(string filePath, Dictionary<string, object> collaborators)
+        protected override async Task<List<Shipment>> LoadModelAsync(Dictionary<string, object> collaborators)
         {
-            var shipments = await base.ParseModelAsync(filePath, collaborators);
+            var shipments = await base.LoadModelAsync(collaborators);
 
             shipments.ForEach(sh => sh.EstimatedDeliveryDate = DateTime.Today.AddDays(2));
             return shipments;

@@ -18,7 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NGroot" Version="1.0.0" />
+    <!-- <PackageReference Include="NGroot" Version="1.0.0" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ngroot\src\Ngroot.csproj" />
   </ItemGroup>
 
 </Project>
