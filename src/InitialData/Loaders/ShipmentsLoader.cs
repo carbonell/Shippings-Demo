@@ -28,7 +28,8 @@ namespace ShipmentsApi
                     context.Add(m);
                     await context.SaveChangesAsync();
                     return m;
-                });
+                })
+            .UseFileLoader();
         }
 
         protected override async Task<List<Shipment>> LoadModelAsync(Dictionary<string, object> collaborators)

@@ -12,6 +12,7 @@ namespace ShipmentsApi
         public PackagesLoader(IOptions<NgrootSettings<InitialData>> settings, ShipmentsContext context) : base(settings)
         {
             Setup(InitialData.Packages)
+                .UseFileLoader()
                 .FindDuplicatesWith(m => context.Packages.FirstOrDefaultAsync(pck => pck.Name == m.Name))
                 .CreateModelUsing(async (m) =>
                 {

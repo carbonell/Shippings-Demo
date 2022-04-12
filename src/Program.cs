@@ -19,12 +19,17 @@ var connectionString = connectionStringsSection.Get<ConnectionStrings>()?.Shipme
 builder.Services.AddDbContext<ShipmentsContext>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlServer(connectionString));
 
 // Configure Settings
-var initialDataSettingsSection = builder.Configuration.GetSection("InitialDataSettings");
-builder.Services.Configure<NgrootSettings<InitialData>>(initialDataSettingsSection);
 // Configure Loader
-builder.Services.AddScoped<IPackagesLoader, PackagesLoader>();
-// Shipments Loader
-builder.Services.AddScoped<IShipmentsLoader, ShipmentsLoader>();
+builder.Services.ConfigureNGroot<InitialData>(settings =>
+{
+    settings.InitialDataFolderRelativePath = "InitialData/Data";
+    settings.SeedTestData = true;
+    settings.PathConfiguration = new List<BaseDataSettings<InitialData>>
+    {
+        new BaseDataSettings<InitialData>{ Identifier = InitialData.Packages, RelativePath = "Packages.json"},
+        new BaseDataSettings<InitialData>{ Identifier = InitialData.Shipments, RelativePath = "Shipments.json"}
+    };
+}, typeof(Program).Assembly);
 
 // Swagger
 builder.Services.AddSwaggerGen();
