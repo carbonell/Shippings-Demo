@@ -41,7 +41,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    await provider.ConfigureInitialData(app.Environment);
+    await provider.LoadData<InitialData>(new Type[]
+    {
+        typeof(ShipmentsLoader),
+        typeof(PackagesLoader),
+    }, contentRootPath: app.Environment.ContentRootPath);
 }
 
 app.UseHttpsRedirection();

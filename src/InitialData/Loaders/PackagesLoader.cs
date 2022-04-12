@@ -5,7 +5,7 @@ using ShipmentsApi.Models;
 
 namespace ShipmentsApi
 {
-    public interface IPackagesLoader : IModelLoader
+    public interface IPackagesLoader
     { }
     public class PackagesLoader : ModelLoader<Package, InitialData>, IPackagesLoader
     {
